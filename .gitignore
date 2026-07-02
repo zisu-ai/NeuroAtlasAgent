@@ -7,4 +7,7 @@ dist/
 build/
 *.egg-info/
 .env
-
+node_modules/
+outputs/*/previews/
+outputs/*/*.inspect.ndjson
+outputs/*/contact_sheet.png
