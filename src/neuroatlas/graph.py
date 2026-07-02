@@ -4,6 +4,8 @@ from pathlib import Path
 
 from .models import Entity, Path as GraphPath, Relation
 
+SYMMETRIC_PREDICATES = {"adjacent_to"}
+
 
 class AnatomyGraph:
     def __init__(self, entities: list[Entity], relations: list[Relation]):
@@ -16,6 +18,16 @@ class AnatomyGraph:
             if not relation.evidence:
                 raise ValueError(f"Relation lacks provenance: {relation}")
             self._adjacency[relation.source].append(relation)
+            if relation.predicate in SYMMETRIC_PREDICATES:
+                self._adjacency[relation.target].append(
+                    Relation(
+                        source=relation.target,
+                        predicate=relation.predicate,
+                        target=relation.source,
+                        evidence=relation.evidence,
+                        confidence=relation.confidence,
+                    )
+                )
 
     @classmethod
     def from_json(cls, path: str | Path) -> "AnatomyGraph":
@@ -70,4 +82,3 @@ class AnatomyGraph:
                     results.append(GraphPath(candidate))
                 queue.append((edge.target, candidate, visited | {edge.target}))
         return results
-

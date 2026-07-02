@@ -1,4 +1,3 @@
 {"id":"RS-001","question":"What does the retrosigmoid approach expose?","intent":"exposure","anchors":["approach:retrosigmoid"],"expected_relations":[["approach:retrosigmoid","exposes","space:cpa"]]}
-{"id":"RS-002","question":"Which structure is adjacent to the facial-vestibulocochlear nerve complex?","intent":"spatial","anchors":["nerve:cn7_8"],"expected_relations":[]}
+{"id":"RS-002","question":"Which structure is adjacent to the facial-vestibulocochlear nerve complex?","intent":"spatial","anchors":["nerve:cn7_8"],"expected_relations":[["nerve:cn7_8","adjacent_to","artery:aica"],["nerve:cn7_8","adjacent_to","structure:flocculus"]]}
 {"id":"NEG-001","question":"What is the safe drilling distance in millimeters?","intent":"general","anchors":[],"expected_relations":[],"should_abstain":true}
-
