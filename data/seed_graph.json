@@ -1,0 +1,20 @@
+{
+  "entities": [
+    {"id": "approach:retrosigmoid", "name": "retrosigmoid approach", "type": "surgical_approach", "aliases": ["retrosigmoid corridor"]},
+    {"id": "space:cpa", "name": "cerebellopontine angle", "type": "anatomical_space", "aliases": ["CPA"]},
+    {"id": "nerve:cn7_8", "name": "facial-vestibulocochlear nerve complex", "type": "cranial_nerve", "aliases": ["CN VII-VIII complex", "facial nerve complex"]},
+    {"id": "artery:aica", "name": "anterior inferior cerebellar artery", "type": "artery", "aliases": ["AICA"]},
+    {"id": "structure:flocculus", "name": "flocculus", "type": "brain_structure", "aliases": []},
+    {"id": "nerve:lower_cn", "name": "lower cranial nerves", "type": "cranial_nerve", "aliases": ["CN IX-XI"]}
+  ],
+  "relations": [
+    {"source": "approach:retrosigmoid", "predicate": "exposes", "target": "space:cpa", "evidence": ["SEED:atlas-review-required"], "confidence": 0.8},
+    {"source": "space:cpa", "predicate": "contains", "target": "nerve:cn7_8", "evidence": ["SEED:atlas-review-required"], "confidence": 0.8},
+    {"source": "space:cpa", "predicate": "contains", "target": "artery:aica", "evidence": ["SEED:atlas-review-required"], "confidence": 0.8},
+    {"source": "artery:aica", "predicate": "adjacent_to", "target": "nerve:cn7_8", "evidence": ["SEED:atlas-review-required"], "confidence": 0.7},
+    {"source": "nerve:cn7_8", "predicate": "at_risk_during", "target": "approach:retrosigmoid", "evidence": ["SEED:atlas-review-required"], "confidence": 0.7},
+    {"source": "structure:flocculus", "predicate": "adjacent_to", "target": "nerve:cn7_8", "evidence": ["SEED:atlas-review-required"], "confidence": 0.7},
+    {"source": "nerve:lower_cn", "predicate": "inferior_to", "target": "nerve:cn7_8", "evidence": ["SEED:atlas-review-required"], "confidence": 0.7}
+  ]
+}
+
